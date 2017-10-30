@@ -172,6 +172,10 @@ var HotKeys = (0, _createReactClass2.default)({
     });
 
     // Hard reset our handlers (probably could be more efficient)
+    if (!mousetrap || !mousetrap.reset) {
+      return;
+    }
+
     mousetrap.reset();
     (0, _forEach2.default)(sequenceHandlers, function (handler) {
       return mousetrap.bind(handler.sequence, handler.callback, handler.action);
